@@ -1,11 +1,12 @@
 package com.example.java1.service;
 
-import java.util.List;
-
-import com.example.java1.model.Vegetal;
+import com.example.java1.dto.VerduraDTO;
+import com.example.java1.dto.VerduraLegumbreDTO;
 
 public interface IServicioBO {
 
-	List<Vegetal> obtenerVegetales();
+	VerduraDTO obtenerVegetales();
+	
+	VerduraLegumbreDTO obtenerVerdurasYlegumbres();
 	
 }

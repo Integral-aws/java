@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "verduras")
-public class Vegetal {
+public class Verdura {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

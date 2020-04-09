@@ -2,15 +2,15 @@ package com.example.java1.dto;
 
 import java.util.List;
 
-import com.example.java1.model.Vegetal;
+import com.example.java1.model.Verdura;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class VegetalDTO extends ResponseDTO {
+public class VerduraDTO extends ResponseDTO {
 
-	private List<Vegetal> vegetales;
+	private List<Verdura> vegetales;
 	
 }
