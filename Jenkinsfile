@@ -2,7 +2,7 @@ pipeline: {
   agent any
   stages: {
     stage('Build'){
-      step {
+      steps {
         sh '''
         echo "########################"
         echo "*** Construyendo JAR ***"
