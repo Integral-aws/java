@@ -11,7 +11,7 @@ pipeline {
           echo "########################"
           MAVEN_M2="//c/Users/Mou/Docker/maven/.m2"
           // DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
-          DIR_PIPELINE="/"
+          DIR_PIPELINE="\\./"
           echo "${MAVEN_M2}"
         }
       }
