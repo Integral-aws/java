@@ -3,9 +3,11 @@ def DIR_PIPELINE
 pipeline {
   agent any
   stages {
-    stage('Initializing variables'){
-      MAVEN_M2=//c/Users/Mou/Docker/maven/.m2
-      DIR_PIPELINE=//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1  
+    stage('Initializing variables') {
+      steps {
+        MAVEN_M2=//c/Users/Mou/Docker/maven/.m2
+        DIR_PIPELINE=//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1
+      }
     }
     stage('Build'){
       steps {
