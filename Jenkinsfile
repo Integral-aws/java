@@ -38,8 +38,8 @@ pipeline {
     } */
     stage('Create Image'){
       steps {
-        sh "DIR_JAR='${DIR_PIPELINE}/target'"
-        sh "echo ${DIR_JAR}"
+        sh 'DIR_JAR="${DIR_PIPELINE}/target"'
+        sh 'echo ${DIR_JAR}'
         sh '''
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
