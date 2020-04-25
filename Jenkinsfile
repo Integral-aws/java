@@ -17,12 +17,12 @@ pipeline {
     }
     stage('Build'){
       steps {
-        sh '''
+        sh """
         echo "########################"
         echo "*** Construyendo JAR ***"
         echo "########################"
         docker run --rm -v ${MAVEN_M2}:/root/.m2 -v ${DIR_PIPELINE}:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
-        '''
+        """
       }
     }/*
     stage('Test'){
@@ -43,7 +43,7 @@ pipeline {
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
-        DIR_JAR=//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1/target
+        // DIR_JAR=//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1/target
         docker build -t test-integral1 .
         '''
       }
