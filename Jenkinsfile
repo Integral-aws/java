@@ -10,7 +10,8 @@ pipeline {
           echo "*** Inicializando Variables ***"
           echo "########################"
           MAVEN_M2="//c/Users/Mou/Docker/maven/.m2"
-          DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
+          // DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
+          DIR_PIPELINE="./"
           echo "${MAVEN_M2}"
         }
       }
@@ -39,14 +40,14 @@ pipeline {
     } */
     stage('Create Image'){
       steps {
-        sh '''
+        sh """
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
-        DIR_JAR="${DIR_PIPELINE}/target"
+        DIR_JAR="${DIR_PIPELINE}target"
         echo "${DIR_JAR}"
         docker build -t test-integral1 .
-        '''
+        """
       }
     }
   }
