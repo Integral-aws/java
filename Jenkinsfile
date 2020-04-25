@@ -6,8 +6,12 @@ pipeline {
     stage('Initializing variables') {
       steps {
         script {
+          echo "########################"
+          echo "*** Inicializando Variables ***"
+          echo "########################"
           MAVEN_M2="//c/Users/Mou/Docker/maven/.m2"
           DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
+          echo "${MAVEN_M2}"
         }
       }
     }
