@@ -19,12 +19,13 @@ pipeline {
     }
     stage('Build'){
       steps {
-        sh """
+        sh '''
         echo "########################"
         echo "*** Construyendo JAR ***"
         echo "########################"
-        docker run --rm -v ${MAVEN_M2}:/root/.m2 -v /${PWD}:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
-        """
+        MAVN="${MAVEN_M2}"
+        docker run --rm -v ${MAVN}:/root/.m2 -v /${PWD}:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
+        '''
       }
     }/*
     stage('Test'){
