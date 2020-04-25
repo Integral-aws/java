@@ -43,7 +43,8 @@ pipeline {
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
-        // DIR_JAR=//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1/target
+        DIR_JAR="${DIR_PIPELINE}/target"
+        echo "${DIR_JAR}"
         docker build -t test-integral1 .
         '''
       }
