@@ -12,7 +12,8 @@ pipeline {
           MAVEN_M2="//c/Users/Mou/Docker/maven/.m2"
           // DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
           DIR_PIPELINE="\\./"
-          echo "${MAVEN_M2}"
+          PWD=$PWD
+          echo "${PWD}"
         }
       }
     }
@@ -22,7 +23,7 @@ pipeline {
         echo "########################"
         echo "*** Construyendo JAR ***"
         echo "########################"
-        docker run --rm -v ${MAVEN_M2}:/root/.m2 -v /$PWD:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
+        docker run --rm -v ${MAVEN_M2}:/root/.m2 -v /${PWD}:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
         """
       }
     }/*
