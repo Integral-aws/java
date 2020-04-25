@@ -10,8 +10,7 @@ pipeline {
           echo "*** Inicializando Variables ***"
           echo "########################"
           MAVEN_M2="//c/Users/Mou/Docker/maven/.m2"
-          // DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
-          DIR_PIPELINE="\\./"
+          DIR_PIPELINE="//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1"
           PWD="$PWD"
           echo "${PWD}"
         }
@@ -19,34 +18,31 @@ pipeline {
     }
     stage('Build'){
       steps {
-        sh '''
+        sh """
         echo "########################"
         echo "*** Construyendo JAR ***"
         echo "########################"
-        MAVN="${MAVEN_M2}"
-        docker run --rm -v ${MAVN}:/root/.m2 -v $PWD:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
-        '''
+        docker run --rm -v ${MAVEN_M2}:/root/.m2 -v ${DIR_PIPELINE}:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
+        """
       }
-    }/*
+    }
     stage('Test'){
       steps {
-        sh '''
+        sh """
         echo "####################################"
         echo "*** Realizando pruebas unitarias ***"
         echo "####################################"
-        MAVEN_M2=//c/Users/Mou/Docker/maven/.m2
-        DIR_PIPELINE=//c/Users/Mou/Docker/jenkins/jenkins_home/workspace/Pipeline_Integral_Java1
         docker run --rm -v ${MAVEN_M2}:/root/.m2 -v ${DIR_PIPELINE}:/app -w /app maven:3-alpine mvn test
-        '''
+        """
       }
-    } */
+    } 
     stage('Create Image'){
       steps {
         sh """
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
-        DIR_JAR="${DIR_PIPELINE}target"
+        DIR_JAR="${DIR_PIPELINE}/target"
         echo "${DIR_JAR}"
         docker build -t test-integral1 .
         """
