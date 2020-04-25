@@ -15,7 +15,7 @@ pipeline {
           echo "${PWD}"
         }
       }
-    }
+    } /*
     stage('Build'){
       steps {
         sh """
@@ -35,17 +35,17 @@ pipeline {
         docker run --rm -v ${MAVEN_M2}:/root/.m2 -v ${DIR_PIPELINE}:/app -w /app maven:3-alpine mvn test
         """
       }
-    } 
+    } */
     stage('Create Image'){
       steps {
-        sh """
+        sh "DIR_JAR='${DIR_PIPELINE}/target'"
+        sh "echo ${DIR_JAR}"
+        sh '''
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
-        DIR_JAR="${DIR_PIPELINE}/target"
-        echo "${DIR_JAR}"
-        docker build -t test-integral1 .
-        """
+        // docker build -t test-integral1 .
+        '''
       }
     }
   }
