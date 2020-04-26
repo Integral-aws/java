@@ -22,7 +22,6 @@ pipeline {
         echo "########################"
         echo "*** Construyendo JAR ***"
         echo "########################"
-        // docker run --rm -v ${MAVEN_M2}:/root/.m2 -v ${DIR_PIPELINE}:/app -w /app maven:3-alpine mvn -B -DskipTests clean package
         ${DOCKER_MAVEN_CONTAINER} mvn -B -DskipTests clean package
         """
       }
