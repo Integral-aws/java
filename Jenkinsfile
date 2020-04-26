@@ -38,7 +38,7 @@ pipeline {
     } */
     stage('Create Image'){
       steps {
-        DIR_JAR="${DIR_PIPELINE}/target"'
+        DIR_JAR="${DIR_PIPELINE}/target"
         sh 'echo ${DIR_JAR}'
         sh '''
         echo "########################"
