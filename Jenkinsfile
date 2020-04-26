@@ -44,7 +44,7 @@ pipeline {
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
-        echo "$PWD"
+        DIR_JAR="${DIR_PIPELINE}/target"
         // docker build -t test-integral1 .
         '''
       }
