@@ -43,7 +43,7 @@ pipeline {
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
         DIR_JAR="${DIR_PIPELINE}/target"
-        docker build -t test-integral1:V1.0 .
+        docker build -t integral/java1:V1.0.0 .
         """
       }
     }
