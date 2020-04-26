@@ -32,15 +32,12 @@ pipeline {
         echo "####################################"
         echo "*** Realizando pruebas unitarias ***"
         echo "####################################"
-        // docker run --rm -v ${MAVEN_M2}:/root/.m2 -v ${DIR_PIPELINE}:/app -w /app maven:3-alpine mvn test
         ${DOCKER_MAVEN_CONTAINER} mvn test
         """
       }
     } 
     stage('Create Image'){
       steps {
-        // DIR_JAR="${DIR_PIPELINE}/target"
-        // sh 'echo $PWD'
         sh """
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
