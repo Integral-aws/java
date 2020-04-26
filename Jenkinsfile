@@ -17,13 +17,23 @@ pipeline {
       }
     }
     stage('Build'){
-      steps {
+      /*steps {
         sh """
         echo "########################"
         echo "*** Construyendo JAR ***"
         echo "########################"
         ${DOCKER_MAVEN_CONTAINER} mvn -B -DskipTests clean package
         """
+      }*/
+      steps {
+        sh """
+        echo "########################"
+        echo "*** Construyendo JAR with Maven ***"
+        echo "########################"
+        """
+        withMaven(maven: maven_3_6_3){
+          sh 'mvn -B -DskipTests clean package'
+        }
       }
     }
     stage('Test'){
