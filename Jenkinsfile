@@ -40,13 +40,13 @@ pipeline {
       steps {
         // DIR_JAR="${DIR_PIPELINE}/target"
         // sh 'echo $PWD'
-        sh '''
+        sh """
         echo "########################"
         echo "*** Construyendo Imagen Docker ***"
         echo "########################"
         DIR_JAR="${DIR_PIPELINE}/target"
         // docker build -t test-integral1 .
-        '''
+        """
       }
     }
   }
