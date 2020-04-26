@@ -31,7 +31,7 @@ pipeline {
         echo "*** Construyendo JAR with Maven ***"
         echo "########################"
         """
-        withMaven(maven: maven_3_6_3){
+        withMaven(maven: 'maven_3_6_3'){
           sh 'mvn -B -DskipTests clean package'
         }
       }
